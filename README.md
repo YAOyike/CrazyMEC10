@@ -11,3 +11,5 @@
 ### Some code we have to finish
 - [ ] 111
 - [ ] 222
+
+The default branch now is “Sample”
