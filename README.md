@@ -9,7 +9,17 @@
 
 ## You can find the code we burned into the Arduino in the main Branch (Haven't created now)
 ### Some code we have to finish
-- [ ] 111
-- [ ] 222
+- [ ] Arm control
+- [ ] Classic control
+- [ ] Correspondence
+
+## Timeline is listed below
+1. The task sheet released
+2. The confirmation of the project contents
+3. Mechanical design
+4. Circuit design
+5. Software design
+6. Report generation
+
 
 The default branch now is “Sample”
