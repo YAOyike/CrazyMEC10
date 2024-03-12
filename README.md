@@ -1,7 +1,7 @@
 # This is a repository for MEC104 Open Project 
-
-> You can find all the arduino code and relevant information here, but we can not ensure that these information is updated on time
-
+***
+You can find all the arduino code and relevant information here, but we can not ensure that these information is updated on time
+***
 ## You can find the information we collected on the Internet before this project in the Sample branch
 ### Some samples are listed below:
 - Dolphin robotic arm control code
