@@ -1,0 +1,48 @@
+# Arduino IDE
+*.hex
+*.elf
+*.eep
+*.bin
+*.db
+*.o
+*.a
+*.lst
+*.eep.hex
+*.bin.hex
+*.map
+
+# VSCode
+.vscode
+.settings
+*.code-workspace
+
+# Arduino specific
+/build/
+/Debug/
+/release/
+/.vscode/
+/.pio/
+/lib/
+/tmp/
+/*.sublime-*
+/*.sublime-workspace
+/*.sublime-project
+/*.sublime-workspace
+/.metadata/
+*.pyc
+*.pyo
+*.pyd
+
+# PlatformIO
+.pioenvs/
+.piolibdeps/
+
+# User-specific files
+*.iml
+*.log
+*.swp
+*.swo
+*.tmproj
+*.tmproject
+*.tmtags
+
