@@ -25,32 +25,37 @@ void loop()
     r1 = r1 + 50;
   }
   if(sensor.ir_left_1){
-    motor_left= motor_left + 20;
+    motor_left= motor_left + 100;
     r0 = r0 - 20;
   }
   if(sensor.ir_left_2){
-    motor_left= motor_left + 40;
+    motor_left= motor_left + 120;
     r0 = r0 - 30;
   }
   if(sensor.ir_left_3){
-    motor_left= motor_left + 60;
+    motor_left= motor_left + 200;
     r0 = r0 - 40;
   }
   if(sensor.ir_right_1){
-    motor_right = motor_right + 20;
-    r1 = r1 - 20;
+    motor_right = motor_right + 100;
+    r1 = r1 - 50;
   }
   if(sensor.ir_right_2){
-    motor_right = motor_right + 40;
+    motor_right = motor_right + 120;
     r1 = r1 - 30;
   }
   if(sensor.ir_right_3){
-    motor_right = motor_right + 60;
-    r1 = r1 - 40;  
+    motor_right = motor_right + 200;
+    r1 = r1 - 50;  
   }
- 
+  if((sensor.ir_left_2 || sensor.ir_left_3) and (sensor.ir_right_2 || sensor.ir_right_3)){
+    motor_left = 200;
+    motor_right = -200;
+  }
   pixels.setPixelColor(0, pixels.Color(r0,g0,b0)); //设定第一个灯珠颜色RGB(0~255)
   pixels.setPixelColor(1, pixels.Color(r1,g1,b1)); //设定第二个灯珠颜色
   pixels.show();  //显示设定好的颜色
   motor_set_PWM(motor_left,motor_right); //设定电机速度(左,右)(0~255)
+
+
 }
