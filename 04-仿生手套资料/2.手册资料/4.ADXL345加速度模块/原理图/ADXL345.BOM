@@ -1,0 +1,14 @@
+Bill of Material for ADXL345.SchDoc
+On 2011/6/19 at 10:55:54
+
+ Comment             Pattern     Quantity  Components
+------------------------------------------------------------------------------
+                     HDR1X5           2    P1, P2                       Header, 5-Pin        
+ 0.1uF               CAPC1608L        2    C2, C4                       Capacitor            
+ 0                   RESC1608L        2    R4, R5                       Resistor             
+ 10K                 RESC1608L        3    R2, R3, R6                   Resistor             
+ 10uF                CAPC3216L        2    C1, C3                       Polarized Capacitor (Surface Mount) 
+ 1K                  RESC1608L        1    R1                           Resistor             
+ ADXL345             LGA14            1    U1                                                
+ LED                 RESC1608L        1    D1                           Typical RED, GREEN, YELLOW, AMBER GaAs LED 
+ RT9161              SOT-89           1    U2                           Voltage Regulator    
