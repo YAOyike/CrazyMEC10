@@ -1,0 +1,63 @@
+#include <Wire.h>
+#include <MPU6050_tockn.h>
+#include <SimpleKalmanFilter.h>
+#include <SoftwareSerial.h>
+
+MPU6050 mpu6050(Wire); 
+
+float measurementNoise = 0.1; 
+float processNoise = 0.01; 
+float estimatedError = 0.1; 
+SoftwareSerial mySerial(10, 11); // RX, TX
+SimpleKalmanFilter KalmanFilter(measurementNoise, processNoise, estimatedError);
+
+void setup() {
+  Serial.begin(9600);
+  mpu6050.begin();
+  Serial.println("MPU6050 initialized");
+}
+
+void loop() {
+  mpu6050.update();
+
+  float acc[3];
+  float angle[3];
+  float acc_estimated[3];
+  float angle_estimated[3];
+
+  acc[0] = mpu6050.getAccX();
+  acc[1] = mpu6050.getAccY();
+  acc[2] = mpu6050.getAccZ();
+
+  angle[0] = mpu6050.getAngleX();
+  angle[1] = mpu6050.getAngleY();
+  angle[2] = mpu6050.getAngleZ();
+
+  acc_estimated[0] = KalmanFilter.updateEstimate(acc[0]);
+  acc_estimated[1] = KalmanFilter.updateEstimate(acc[1]);
+  acc_estimated[2] = KalmanFilter.updateEstimate(acc[2]);
+
+  angle_estimated[0] = KalmanFilter.updateEstimate(angle[0]);
+  angle_estimated[1] = KalmanFilter.updateEstimate(angle[1]);
+  angle_estimated[2] = KalmanFilter.updateEstimate(angle[2]);
+
+  for (int i = 0; i < 3; i++) {
+    Serial.print(acc[i]);
+    Serial.print(",");
+  }
+  for (int i = 0; i < 3; i++) {
+    Serial.print(acc_estimated[i]);
+    Serial.print(",");
+  }
+  for (int i = 0; i < 3; i++) {
+    Serial.print(angle[i]);
+    Serial.print(",");
+  }
+  for (int i = 0; i < 3; i++) {
+    Serial.print(angle_estimated[i]);
+    Serial.print(",");
+  }
+  Serial.println();
+
+  delay(100);
+}
